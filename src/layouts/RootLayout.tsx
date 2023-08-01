@@ -1,6 +1,8 @@
-import { Grid, Layout, Typography, theme } from 'antd';
+import { MenuFoldOutlined, MenuUnfoldOutlined } from '@ant-design/icons';
+import { Button, Grid, Layout, Typography, theme } from 'antd';
 import Link from 'next/link';
-import { ReactNode } from 'react';
+import { ReactNode, useState } from 'react';
+import Sidebar from './MobileMenu';
 import Navbar from './Navbar';
 
 const { Header, Content, Footer } = Layout;
@@ -12,11 +14,19 @@ interface RootLayoutProps {
 }
 
 const RootLayout = ({ children }: RootLayoutProps) => {
+    const [open, setOpen] = useState(false);
     const {
         token: { colorBgContainer },
     } = theme.useToken();
-
     const { lg } = useBreakpoint();
+
+    const showDrawer = () => {
+        setOpen(true);
+    };
+
+    const onClose = () => {
+        setOpen(false);
+    };
 
     return (
         <Layout className="layout">
@@ -32,7 +42,28 @@ const RootLayout = ({ children }: RootLayoutProps) => {
                         PC Builder
                     </Title>
                 </Link>
-                {lg && <Navbar />}
+                {lg ? (
+                    <Navbar />
+                ) : (
+                    <>
+                        <Button
+                            type="text"
+                            icon={
+                                open ? (
+                                    <MenuUnfoldOutlined />
+                                ) : (
+                                    <MenuFoldOutlined />
+                                )
+                            }
+                            onClick={showDrawer}
+                            style={{
+                                fontSize: '16px',
+                                color: 'white',
+                            }}
+                        />
+                    </>
+                )}
+                <Sidebar open={open} onClose={onClose} />
             </Header>
             <Content style={{ padding: '0 50px' }}>
                 <div
