@@ -1,4 +1,5 @@
 import Banner from '@/components/Banner';
+import FeaturedCategories from '@/components/FeaturedCategories';
 import FeaturedProducts from '@/components/FeaturedProducts';
 import RootLayout from '@/layouts/RootLayout';
 import { getAllCategories } from '@/redux/features/categories';
@@ -36,6 +37,7 @@ const Home = ({ products, categories }: HomeProps) => {
                 <link rel="icon" href="/favicon.ico" />
             </Head>
             <Banner />
+            <FeaturedCategories />
             <FeaturedProducts products={products} />
         </>
     );

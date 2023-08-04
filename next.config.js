@@ -5,6 +5,9 @@ const nextConfig = {
         MONGODB_URI: process.env.MONGODB_URI,
         BASE_URL: process.env.BASE_URL,
     },
+    images: {
+        domains: ['i.ibb.co'],
+    },
 };
 
 module.exports = nextConfig;

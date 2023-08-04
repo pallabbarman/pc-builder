@@ -1,8 +1,8 @@
 import { Product } from '@/types/product';
-import { Col, Grid, Row, Typography } from 'antd';
+import { Col, Grid, Row } from 'antd';
+import FeaturedTitle from '../FeaturedTitle';
 import ProductCard from '../ProductCard';
 
-const { Title } = Typography;
 const { useBreakpoint } = Grid;
 
 interface FeaturedProductsProps {
@@ -11,17 +11,13 @@ interface FeaturedProductsProps {
 
 const FeaturedProducts = ({ products }: FeaturedProductsProps) => {
     const { md } = useBreakpoint();
+
     return (
         <div style={{ padding: md ? '3rem 50px' : '2rem 1rem' }}>
-            <Title
-                level={md ? 2 : 4}
-                style={{ textAlign: 'center', fontWeight: 'bold' }}
-            >
-                Featured Products
-            </Title>
-            <p style={{ textAlign: 'center', fontWeight: 'bold' }}>
-                Check & Get Your Desired Product!
-            </p>
+            <FeaturedTitle
+                title="Featured Products"
+                description="Check & Get Your Desired Product!"
+            />
             <Row gutter={[24, 24]} style={{ marginTop: '2rem' }}>
                 {products?.map((product) => (
                     <Col
