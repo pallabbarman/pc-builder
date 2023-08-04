@@ -65,7 +65,7 @@ const RootLayout = ({ children }: RootLayoutProps) => {
                 )}
                 <Sidebar open={open} onClose={onClose} />
             </Header>
-            <Content style={{ padding: '0 50px' }}>
+            <Content>
                 <div
                     className="site-layout-content"
                     style={{ background: colorBgContainer }}

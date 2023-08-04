@@ -4,7 +4,7 @@ import Link from 'next/link';
 export const items: MenuProps['items'] = [
     {
         label: <Link href="/">Home</Link>,
-        key: 'home',
+        key: '',
     },
     {
         label: 'Categories',
