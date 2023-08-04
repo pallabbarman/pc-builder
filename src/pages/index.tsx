@@ -1,9 +1,17 @@
 import Banner from '@/components/Banner';
 import FeaturedProducts from '@/components/FeaturedProducts';
 import RootLayout from '@/layouts/RootLayout';
+import { Category } from '@/types/category';
+import { Product } from '@/types/product';
 import Head from 'next/head';
 import type { ReactElement } from 'react';
-export default function Home() {
+
+export interface HomeProps {
+    products: Product[];
+    categories: Category[];
+}
+
+const Home = ({ products }: HomeProps) => {
     return (
         <>
             <Head>
@@ -19,11 +27,25 @@ export default function Home() {
                 <link rel="icon" href="/favicon.ico" />
             </Head>
             <Banner />
-            <FeaturedProducts />
+            <FeaturedProducts products={products} />
         </>
     );
-}
+};
 
 Home.getLayout = function getLayout(page: ReactElement) {
-    return <RootLayout>{page}</RootLayout>;
+    return <RootLayout categories={page.props.categories}>{page}</RootLayout>;
 };
+
+export const getStaticProps = async () => {
+    const productResponse = await fetch(`${process.env.BASE_URL}/api/products`);
+    const products = await productResponse.json();
+
+    const categoriesResponse = await fetch(
+        `${process.env.BASE_URL}/api/categories`
+    );
+    const categories = await categoriesResponse.json();
+
+    return { props: { products, categories } };
+};
+
+export default Home;

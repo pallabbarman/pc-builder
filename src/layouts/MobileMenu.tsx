@@ -1,14 +1,14 @@
 import type { MenuProps } from 'antd';
 import { Drawer, Menu } from 'antd';
 import { useState } from 'react';
-import { items } from './NavItems';
 
 interface SidebarProps {
     open: boolean;
     onClose: () => void;
+    items: MenuProps['items'];
 }
 
-const Sidebar = ({ open, onClose }: SidebarProps) => {
+const Sidebar = ({ open, onClose, items }: SidebarProps) => {
     const [current, setCurrent] = useState('home');
 
     const onClick: MenuProps['onClick'] = (e) => {

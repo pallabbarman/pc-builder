@@ -2,9 +2,12 @@ import type { MenuProps } from 'antd';
 import { Menu } from 'antd';
 import { useRouter } from 'next/router';
 import { useEffect, useState } from 'react';
-import { items } from './NavItems';
 
-const Navbar = () => {
+interface NavbarProps {
+    items: MenuProps['items'];
+}
+
+const Navbar = ({ items }: NavbarProps) => {
     const [current, setCurrent] = useState('');
     const router = useRouter();
 

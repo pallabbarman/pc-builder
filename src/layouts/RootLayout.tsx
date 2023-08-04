@@ -1,4 +1,6 @@
+import { Category } from '@/types/category';
 import { MenuFoldOutlined, MenuUnfoldOutlined } from '@ant-design/icons';
+import type { MenuProps } from 'antd';
 import { Button, Grid, Layout, Typography, theme } from 'antd';
 import Link from 'next/link';
 import { ReactNode, useState } from 'react';
@@ -10,10 +12,14 @@ const { Title } = Typography;
 const { useBreakpoint } = Grid;
 
 interface RootLayoutProps {
+    categories: Category[];
     children: ReactNode;
 }
 
-const RootLayout = ({ children }: RootLayoutProps) => {
+const RootLayout: React.FC<RootLayoutProps> = ({
+    categories,
+    children,
+}: RootLayoutProps) => {
     const [open, setOpen] = useState(false);
     const {
         token: { colorBgContainer },
@@ -28,6 +34,33 @@ const RootLayout = ({ children }: RootLayoutProps) => {
         setOpen(false);
     };
 
+    const items: MenuProps['items'] = [
+        {
+            label: <Link href="/">Home</Link>,
+            key: '',
+        },
+        {
+            label: 'Categories',
+            key: 'categories',
+            children: categories?.map((category) => ({
+                label: (
+                    <Link href={`/category/${category.url}`}>
+                        {category.name}
+                    </Link>
+                ),
+                key: category.key,
+            })),
+        },
+        {
+            label: <Link href="/">PC Builder</Link>,
+            key: 'pc-builder',
+        },
+        {
+            label: <Link href="/signin">SignIn</Link>,
+            key: 'signin',
+        },
+    ];
+
     return (
         <Layout className="layout">
             <Header
@@ -35,6 +68,9 @@ const RootLayout = ({ children }: RootLayoutProps) => {
                     display: 'flex',
                     alignItems: 'center',
                     justifyContent: 'space-between',
+                    position: 'sticky',
+                    top: 0,
+                    zIndex: 1,
                 }}
             >
                 <Link href="/">
@@ -43,7 +79,7 @@ const RootLayout = ({ children }: RootLayoutProps) => {
                     </Title>
                 </Link>
                 {lg ? (
-                    <Navbar />
+                    <Navbar items={items} />
                 ) : (
                     <>
                         <Button
@@ -63,7 +99,7 @@ const RootLayout = ({ children }: RootLayoutProps) => {
                         />
                     </>
                 )}
-                <Sidebar open={open} onClose={onClose} />
+                <Sidebar open={open} onClose={onClose} items={items} />
             </Header>
             <Content>
                 <div
