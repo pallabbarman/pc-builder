@@ -23,7 +23,7 @@ const FeaturedProducts = ({ products }: FeaturedProductsProps) => {
                 Check & Get Your Desired Product!
             </p>
             <Row gutter={[24, 24]} style={{ marginTop: '2rem' }}>
-                {products.map((product) => (
+                {products?.map((product) => (
                     <Col
                         xl={{ span: 6 }}
                         lg={{ span: 8 }}
