@@ -5,6 +5,7 @@ import { getAllCategories } from '@/redux/features/categories';
 import { useAppDispatch } from '@/redux/hooks';
 import { Category } from '@/types/category';
 import { Product } from '@/types/product';
+import { GetStaticProps } from 'next';
 import Head from 'next/head';
 import { useEffect, type ReactElement } from 'react';
 
@@ -44,13 +45,16 @@ Home.getLayout = function getLayout(page: ReactElement) {
     return <RootLayout>{page}</RootLayout>;
 };
 
-export const getStaticProps = async () => {
-    const productResponse = await fetch(`${process.env.BASE_URL}/api/products`);
+export const getStaticProps: GetStaticProps<HomeProps> = async () => {
+    if (typeof window === 'undefined') {
+        return { props: { products: [], categories: [] } };
+    }
+
+    const baseUrl = process.env.BASE_URL;
+    const productResponse = await fetch(`${baseUrl}/api/products`);
     const products = await productResponse.json();
 
-    const categoriesResponse = await fetch(
-        `${process.env.BASE_URL}/api/categories`
-    );
+    const categoriesResponse = await fetch(`${baseUrl}/api/categories`);
     const categories = await categoriesResponse.json();
 
     return { props: { products, categories } };
