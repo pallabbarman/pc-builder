@@ -1,4 +1,4 @@
-import { Category } from '@/types/category';
+import { useAppSelector } from '@/redux/hooks';
 import { MenuFoldOutlined, MenuUnfoldOutlined } from '@ant-design/icons';
 import type { MenuProps } from 'antd';
 import { Button, Grid, Layout, Typography, theme } from 'antd';
@@ -12,19 +12,16 @@ const { Title } = Typography;
 const { useBreakpoint } = Grid;
 
 interface RootLayoutProps {
-    categories: Category[];
     children: ReactNode;
 }
 
-const RootLayout: React.FC<RootLayoutProps> = ({
-    categories,
-    children,
-}: RootLayoutProps) => {
+const RootLayout = ({ children }: RootLayoutProps) => {
     const [open, setOpen] = useState(false);
     const {
         token: { colorBgContainer },
     } = theme.useToken();
     const { lg } = useBreakpoint();
+    const { categories } = useAppSelector((state) => state.categories);
 
     const showDrawer = () => {
         setOpen(true);

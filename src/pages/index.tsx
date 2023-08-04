@@ -1,17 +1,25 @@
 import Banner from '@/components/Banner';
 import FeaturedProducts from '@/components/FeaturedProducts';
 import RootLayout from '@/layouts/RootLayout';
+import { getAllCategories } from '@/redux/features/categories';
+import { useAppDispatch } from '@/redux/hooks';
 import { Category } from '@/types/category';
 import { Product } from '@/types/product';
 import Head from 'next/head';
-import type { ReactElement } from 'react';
+import { useEffect, type ReactElement } from 'react';
 
 export interface HomeProps {
     products: Product[];
     categories: Category[];
 }
 
-const Home = ({ products }: HomeProps) => {
+const Home = ({ products, categories }: HomeProps) => {
+    const dispatch = useAppDispatch();
+
+    useEffect(() => {
+        dispatch(getAllCategories(categories));
+    }, [categories, dispatch]);
+
     return (
         <>
             <Head>
@@ -33,7 +41,7 @@ const Home = ({ products }: HomeProps) => {
 };
 
 Home.getLayout = function getLayout(page: ReactElement) {
-    return <RootLayout categories={page.props.categories}>{page}</RootLayout>;
+    return <RootLayout>{page}</RootLayout>;
 };
 
 export const getStaticProps = async () => {
