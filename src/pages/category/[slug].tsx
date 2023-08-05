@@ -23,7 +23,7 @@ const ProductCategory = ({ products }: ProductCategoryProps) => {
                 minHeight: '100vh',
             }}
         >
-            {products.length === 0 && (
+            {products?.length === 0 && (
                 <Title level={md ? 1 : 4} style={{ textAlign: 'center' }}>
                     No Data Found!
                 </Title>
@@ -66,6 +66,10 @@ export const getStaticPaths: GetStaticPaths = async () => {
 export const getStaticProps: GetStaticProps<ProductCategoryProps> = async ({
     params,
 }) => {
+    if (typeof window === 'undefined') {
+        return { props: { products: [] } };
+    }
+
     const baseUrl = process.env.BASE_URL;
     const productResponse = await fetch(
         `${baseUrl}/api/categories/products?category=${params?.slug}`
