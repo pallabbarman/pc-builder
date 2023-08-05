@@ -15,17 +15,14 @@ const ProductCard = ({ product }: ProductCardProps) => {
             hoverable
             cover={
                 <Image
-                    alt="example"
-                    src="/banner.jpg"
+                    alt={product.name}
+                    src={product.image}
                     width={200}
                     height={200}
                 />
             }
         >
-            <Meta
-                title={product?.product_name}
-                description="It was popularised in the 1960s with the release of Letraset sheets containing Lorem Ipsum passages."
-            />
+            <Meta title={product?.name} description={product.description} />
             <div
                 style={{
                     display: 'flex',
@@ -48,7 +45,7 @@ const ProductCard = ({ product }: ProductCardProps) => {
                 }}
             >
                 <p>Status: {product?.status}</p>
-                <p>{product?.rating}</p>
+                <p>{product?.avg_rating}</p>
             </div>
         </Card>
     );

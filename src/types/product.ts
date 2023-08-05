@@ -6,9 +6,12 @@ export enum ProductStatus {
 export interface Product {
     _id: string;
     image: string;
-    product_name: string;
+    name: string;
     category: string;
     price: number;
     status: ProductStatus;
-    rating: number;
+    inv_rating: number;
+    avg_rating: number;
+    description: string;
+    reviews: string[];
 }

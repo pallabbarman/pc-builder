@@ -29,7 +29,7 @@ const FeaturedCategories = () => {
             >
                 {categories?.map((category) => (
                     <Col key={category.key}>
-                        <Link href={category.url}>
+                        <Link href={`/category/${category.url}`}>
                             <Card
                                 hoverable
                                 style={{ width: 150 }}
