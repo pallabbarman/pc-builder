@@ -78,10 +78,6 @@ export const getStaticPaths: GetStaticPaths = async () => {
 export const getStaticProps: GetStaticProps<ProductDetailsProps> = async ({
     params,
 }) => {
-    if (typeof window === 'undefined') {
-        return { props: { product: {} } };
-    }
-
     const baseUrl = process.env.BASE_URL;
     const productResponse = await fetch(
         `${baseUrl}/api/products/${params?.id}`
