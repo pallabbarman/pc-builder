@@ -21,6 +21,7 @@ const FeaturedProducts = ({ products }: FeaturedProductsProps) => {
             <Row gutter={[24, 24]} style={{ marginTop: '2rem' }}>
                 {products?.map((product) => (
                     <Col
+                        xxl={{ span: 4 }}
                         xl={{ span: 6 }}
                         lg={{ span: 8 }}
                         md={{ span: 12 }}
