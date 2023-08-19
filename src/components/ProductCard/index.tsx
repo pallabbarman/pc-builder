@@ -48,7 +48,11 @@ const ProductCard = ({ product }: ProductCardProps) => {
                     }}
                 >
                     <p>Status: {product?.status}</p>
-                    <Rate disabled defaultValue={product.avg_rating} />
+                    <Rate
+                        disabled
+                        allowHalf
+                        defaultValue={product.avg_rating}
+                    />
                 </div>
             </Card>
         </Link>

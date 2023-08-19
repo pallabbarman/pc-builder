@@ -1,19 +1,28 @@
 import RootLayout from '@/layouts/RootLayout';
+import { getAllCategories } from '@/redux/features/categories';
+import { useAppDispatch } from '@/redux/hooks';
+import { Category } from '@/types/category';
 import { Product } from '@/types/product';
 import { Col, Grid, Rate, Row, Typography } from 'antd';
 import { GetStaticPaths, GetStaticProps } from 'next';
 import Image from 'next/image';
-import { ReactElement } from 'react';
+import { ReactElement, useEffect } from 'react';
 
 const { useBreakpoint } = Grid;
 const { Title, Paragraph } = Typography;
 
 interface ProductDetailsProps {
     product: Product;
+    categories: Category[];
 }
 
-const ProductDetails = ({ product }: ProductDetailsProps) => {
+const ProductDetails = ({ product, categories }: ProductDetailsProps) => {
     const { md, lg } = useBreakpoint();
+    const dispatch = useAppDispatch();
+
+    useEffect(() => {
+        dispatch(getAllCategories(categories));
+    }, [categories, dispatch]);
 
     return (
         <div
@@ -47,9 +56,22 @@ const ProductDetails = ({ product }: ProductDetailsProps) => {
                     <Title level={lg ? 1 : 3}>{product?.name}</Title>
                     <Title level={3}>Price: {product?.price}$</Title>
                     <Paragraph>Description: {product?.description}</Paragraph>
-                    <Title level={5}>Category: {product?.category}</Title>
-                    <Title level={5}>Status: {product?.status}</Title>
-                    <Rate disabled defaultValue={product?.avg_rating} />
+                    <Title level={5} style={{ marginTop: 0 }}>
+                        Category: {product?.category}
+                    </Title>
+                    {product?.key_features.map((feature) => (
+                        <Title level={5} key={feature} style={{ marginTop: 0 }}>
+                            {feature}
+                        </Title>
+                    ))}
+                    <Title level={5} style={{ marginTop: 0 }}>
+                        Status: {product?.status}
+                    </Title>
+                    <Rate
+                        disabled
+                        allowHalf
+                        defaultValue={product?.avg_rating}
+                    />
                 </Col>
             </Row>
         </div>
@@ -84,7 +106,10 @@ export const getStaticProps: GetStaticProps<ProductDetailsProps> = async ({
     );
     const product = await productResponse.json();
 
-    return { props: { product } };
+    const categoriesResponse = await fetch(`${baseUrl}/api/categories`);
+    const categories = await categoriesResponse.json();
+
+    return { props: { product, categories } };
 };
 
 export default ProductDetails;

@@ -10,6 +10,7 @@ export interface Product {
     category: string;
     price: number;
     status: ProductStatus;
+    key_features: string[];
     inv_rating: number;
     avg_rating: number;
     description: string;

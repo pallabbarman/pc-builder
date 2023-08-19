@@ -1,20 +1,28 @@
 import ProductCard from '@/components/ProductCard';
 import RootLayout from '@/layouts/RootLayout';
+import { getAllCategories } from '@/redux/features/categories';
+import { useAppDispatch } from '@/redux/hooks';
 import { Category } from '@/types/category';
 import { Product } from '@/types/product';
 import { Col, Grid, Row, Typography } from 'antd';
 import { GetStaticPaths, GetStaticProps } from 'next';
-import { ReactElement } from 'react';
+import { ReactElement, useEffect } from 'react';
 
 const { useBreakpoint } = Grid;
 const { Title } = Typography;
 
 interface ProductCategoryProps {
     products: Product[];
+    categories: Category[];
 }
 
-const ProductCategory = ({ products }: ProductCategoryProps) => {
+const ProductCategory = ({ products, categories }: ProductCategoryProps) => {
     const { md } = useBreakpoint();
+    const dispatch = useAppDispatch();
+
+    useEffect(() => {
+        dispatch(getAllCategories(categories));
+    }, [categories, dispatch]);
 
     return (
         <div
@@ -72,7 +80,10 @@ export const getStaticProps: GetStaticProps<ProductCategoryProps> = async ({
     );
     const products = await productResponse.json();
 
-    return { props: { products } };
+    const categoriesResponse = await fetch(`${baseUrl}/api/categories`);
+    const categories = await categoriesResponse.json();
+
+    return { props: { products, categories } };
 };
 
 export default ProductCategory;
