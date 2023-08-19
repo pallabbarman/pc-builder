@@ -1,6 +1,7 @@
-import { Col, Grid, Row, Typography } from 'antd';
+import { Button, Col, Grid, Row, Typography } from 'antd';
+import Link from 'next/link';
 
-const { Title } = Typography;
+const { Title, Paragraph } = Typography;
 const { useBreakpoint } = Grid;
 
 const Banner = () => {
@@ -32,13 +33,23 @@ const Banner = () => {
                     <Title level={1} style={{ color: 'white' }}>
                         Welcome to PC Builder
                     </Title>
-                    <p>
+                    <Paragraph style={{ color: 'white' }}>
                         Lorem ipsum dolor sit amet consectetur adipisicing elit.
                         Ducimus laudantium est quas molestiae nihil, eligendi
                         doloribus, enim error sequi quisquam, excepturi
                         provident cum nostrum nemo voluptas vitae necessitatibus
                         voluptatem reprehenderit?
-                    </p>
+                    </Paragraph>
+                    <Link href="/">
+                        <Button
+                            style={{
+                                backgroundColor: 'transparent',
+                                color: 'white',
+                            }}
+                        >
+                            PC Builder
+                        </Button>
+                    </Link>
                 </div>
             </Col>
         </Row>
