@@ -1,9 +1,10 @@
+import Review from '@/components/Review';
 import RootLayout from '@/layouts/RootLayout';
 import { getAllCategories } from '@/redux/features/categories';
 import { useAppDispatch } from '@/redux/hooks';
 import { Category } from '@/types/category';
 import { Product } from '@/types/product';
-import { Col, Grid, Rate, Row, Typography } from 'antd';
+import { Col, Divider, Grid, Rate, Row, Typography } from 'antd';
 import { GetStaticPaths, GetStaticProps } from 'next';
 import Image from 'next/image';
 import { ReactElement, useEffect } from 'react';
@@ -74,6 +75,8 @@ const ProductDetails = ({ product, categories }: ProductDetailsProps) => {
                     />
                 </Col>
             </Row>
+            <Divider style={{ boxShadow: 'rgba(0, 0, 0, 0.24) 0px 3px 8px' }} />
+            <Review reviews={product?.reviews} />
         </div>
     );
 };

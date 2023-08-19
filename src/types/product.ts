@@ -3,6 +3,10 @@ export enum ProductStatus {
     OUT_STOCK = 'Out of stock',
 }
 
+export interface Review {
+    review: string;
+}
+
 export interface Product {
     _id: string;
     image: string;
@@ -14,5 +18,5 @@ export interface Product {
     inv_rating: number;
     avg_rating: number;
     description: string;
-    reviews: string[];
+    reviews: Review[];
 }
