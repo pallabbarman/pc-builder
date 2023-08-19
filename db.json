@@ -1,0 +1,380 @@
+[
+    {
+        "image": "https://i.ibb.co/Xj4Zvp8/processor2.webp",
+        "name": "Intel Core i9-11900K",
+        "category": "cpu",
+        "status": "In Stock",
+        "price": "35000",
+        "description": "The Intel Core i9-11900K is a powerful 8-core processor from Intel's 11th Gen Core series.",
+        "key_features": [
+            "Brand: Intel",
+            "Cores: 8",
+            "Threads: 16",
+            "Base Clock: 3.5GHz",
+            "Max Turbo Frequency: 5.3GHz"
+        ],
+        "inv_rating": null,
+        "avg_rating": 4.5,
+        "reviews": []
+    },
+    {
+        "image": "https://i.ibb.co/4g4zjvB/processor1.webp",
+        "name": "AMD Ryzen 5 5900X",
+        "category": "cpu",
+        "status": "Out of stock",
+        "price": "38000",
+        "description": "The AMD Ryzen 5 5900X is a powerful 12-core processor from AMD's Ryzen 5000 series.",
+        "key_features": [
+            "Brand: AMD",
+            "Cores: 12",
+            "Threads: 24",
+            "Base Clock: 3.7GHz",
+            "Max Boost Clock: 4.8GHz"
+        ],
+        "inv_rating": null,
+        "avg_rating": 4.5,
+        "reviews": []
+    },
+    {
+        "image": "https://i.ibb.co/Gkm8Zk9/processor3.webp",
+        "name": "Intel Core i9-11600K",
+        "category": "cpu",
+        "status": "In Stock",
+        "price": "22000",
+        "description": "The Intel Core i9-11600K is a capable 6-core processor from Intel's 11th Gen Core series.",
+        "key_features": [
+            "Brand: Intel",
+            "Cores: 6",
+            "Threads: 12",
+            "Base Clock: 3.9GHz",
+            "Max Turbo Frequency: 4.9GHz"
+        ],
+        "inv_rating": null,
+        "avg_rating": 3.5,
+        "reviews": []
+    },
+    {
+        "image": "https://i.ibb.co/WDB3Sfv/motherboard.jpg",
+        "name": "ASUS ROG Strix Z590-E Gaming",
+        "category": "motherboard",
+        "status": "In Stock",
+        "price": "25000",
+        "description": "The ASUS ROG Strix Z590-E Gaming is a high-end motherboard designed for gaming enthusiasts.",
+        "key_features": [
+            "Brand: ASUS",
+            "Socket: LGA 1200",
+            "Chipset: Intel Z590",
+            "Memory: DDR4, 128GB max",
+            "PCIe Slots: 3 x16, 3 x1"
+        ],
+        "inv_rating": null,
+        "avg_rating": 5,
+        "reviews": []
+    },
+    {
+        "image": "https://i.ibb.co/02Y7P33/mb2.jpg",
+        "name": "GIGABYTE B550 AORUS Pro",
+        "category": "motherboard",
+        "status": "In Stock",
+        "price": "18000",
+        "description": "The GIGABYTE B550 AORUS Pro is a versatile motherboard for AMD Ryzen processors.",
+        "key_features": [
+            "Brand: GIGABYTE",
+            "Socket: AM4",
+            "Chipset: AMD B550",
+            "Memory: DDR4, 128GB max",
+            "PCIe Slots: 2 x16, 1 x1"
+        ],
+        "inv_rating": null,
+        "avg_rating": 4.5,
+        "reviews": []
+    },
+    {
+        "image": "https://i.ibb.co/KLDkL0z/mb3.webp",
+        "name": "MSI MPG X570 GAMING EDGE WIFI",
+        "category": "motherboard",
+        "status": "In Stock",
+        "price": "21000",
+        "description": "The MSI MPG X570 GAMING EDGE WIFI is a gaming-oriented motherboard with Wi-Fi support.",
+        "key_features": [
+            "Brand: MSI",
+            "Socket: AM4",
+            "Chipset: AMD X570",
+            "Memory: DDR4, 128GB max",
+            "PCIe Slots: 2 x16, 2 x1"
+        ],
+        "inv_rating": null,
+        "avg_rating": 4.5,
+        "reviews": []
+    },
+    {
+        "image": "https://i.ibb.co/WWs4HG6/ram1.jpg",
+        "name": "Corsair Vengeance RGB Pro",
+        "category": "ram",
+        "status": "In Stock",
+        "price": "8000",
+        "description": "Corsair Vengeance RGB Pro is a high-performance DDR4 RAM with customizable RGB lighting.",
+        "key_features": [
+            "Brand: Corsair",
+            "Capacity: 16GB (2x8GB)",
+            "Speed: 3200MHz",
+            "CAS Latency: 16",
+            "RGB Lighting: Yes"
+        ],
+        "inv_rating": null,
+        "avg_rating": 4.5,
+        "reviews": []
+    },
+    {
+        "image": "https://i.ibb.co/9tY0vxH/ram3.webp",
+        "name": "G.SKILL Trident Z Neo",
+        "category": "ram",
+        "status": "In Stock",
+        "price": "7500",
+        "description": "G.SKILL Trident Z Neo is a high-speed DDR4 RAM designed for AMD Ryzen processors.",
+        "key_features": [
+            "Brand: G.SKILL",
+            "Capacity: 32GB (2x16GB)",
+            "Speed: 3600MHz",
+            "CAS Latency: 16",
+            "RGB Lighting: No"
+        ],
+        "inv_rating": null,
+        "avg_rating": 4.5,
+        "reviews": []
+    },
+    {
+        "image": "https://i.ibb.co/0qbTjXh/ram2.webp",
+        "name": "Crucial Ballistix 32GB",
+        "category": "ram",
+        "status": "In Stock",
+        "price": "8500",
+        "description": "Crucial Ballistix is a reliable DDR4 RAM with a focus on stability and performance.",
+        "key_features": [
+            "Brand: Crucial",
+            "Capacity: 32GB (2x16GB)",
+            "Speed: 3000MHz",
+            "CAS Latency: 15",
+            "RGB Lighting: No"
+        ],
+        "inv_rating": null,
+        "avg_rating": 4.5,
+        "reviews": []
+    },
+    {
+        "image": "https://i.ibb.co/3mgHVzd/ps1.jpg",
+        "name": "Seasonic Focus GX-750",
+        "category": "power",
+        "status": "In Stock",
+        "price": "12000",
+        "description": "The Seasonic Focus GX-750 is a high-efficiency power supply with modular cables.",
+        "key_features": [
+            "Brand: Seasonic",
+            "Wattage: 750W",
+            "Efficiency: 80+ Gold",
+            "Modular: Yes",
+            "Fanless Mode: Yes"
+        ],
+        "inv_rating": null,
+        "avg_rating": 4.5,
+        "reviews": []
+    },
+    {
+        "image": "https://i.ibb.co/9ZmQ3PG/ps2.webp",
+        "name": "Corsair RM750x",
+        "category": "power",
+        "status": "In Stock",
+        "price": "11500",
+        "description": "The Corsair RM750x is a high-quality 750W power supply with fully modular cables.",
+        "key_features": [
+            "Brand: Corsair",
+            "Wattage: 750W",
+            "Efficiency: 80+ Gold",
+            "Modular: Yes",
+            "Fanless Mode: No"
+        ],
+        "inv_rating": null,
+        "avg_rating": 4.5,
+        "reviews": []
+    },
+    {
+        "image": "https://i.ibb.co/1Zm8T5Q/ps3.jpg",
+        "name": "EVGA SuperNOVA 750 G3",
+        "category": "power",
+        "status": "In Stock",
+        "price": "12500",
+        "description": "The EVGA SuperNOVA 750 G3 is a compact 750W power supply with efficient performance.",
+        "key_features": [
+            "Brand: EVGA",
+            "Wattage: 750W",
+            "Efficiency: 80+ Gold",
+            "Modular: Yes",
+            "Fanless Mode: No"
+        ],
+        "inv_rating": null,
+        "avg_rating": 4.5,
+        "reviews": []
+    },
+
+    {
+        "image": "https://i.ibb.co/zV4GyQw/sd1.jpg",
+        "name": "Samsung 970 EVO Plus 1TB",
+        "category": "storage",
+        "status": "In Stock",
+        "price": "15000",
+        "description": "The Samsung 970 EVO Plus is a high-speed NVMe SSD with reliable performance.",
+        "key_features": [
+            "Brand: Samsung",
+            "Capacity: 1TB",
+            "Interface: NVMe PCIe Gen 3.0 x4",
+            "Read Speed: Up to 3,500MB/s",
+            "Write Speed: Up to 3,300MB/s"
+        ],
+        "inv_rating": null,
+        "avg_rating": 4.5,
+        "reviews": []
+    },
+    {
+        "image": "https://i.ibb.co/qF0dD1q/sd2.jpg",
+        "name": "WD Black SN750 500GB",
+        "category": "storage",
+        "status": "In Stock",
+        "price": "10000",
+        "description": "The WD Black SN750 is a high-performance NVMe SSD with a focus on gamers and content creators.",
+        "key_features": [
+            "Brand: WD",
+            "Capacity: 500GB",
+            "Interface: NVMe PCIe Gen 3.0 x4",
+            "Read Speed: Up to 3,470MB/s",
+            "Write Speed: Up to 3,000MB/s"
+        ],
+        "inv_rating": null,
+        "avg_rating": 4.5,
+        "reviews": []
+    },
+    {
+        "image": "https://i.ibb.co/nDQPHkJ/sd3.jpg",
+        "name": "Crucial MX500 2TB",
+        "category": "storage",
+        "status": "In Stock",
+        "price": "18000",
+        "description": "The Crucial MX500 is a reliable SATA SSD with a high capacity of 2TB.",
+        "key_features": [
+            "Brand: Crucial",
+            "Capacity: 2TB",
+            "Interface: SATA III",
+            "Read Speed: Up to 560MB/s",
+            "Write Speed: Up to 510MB/s"
+        ],
+        "inv_rating": null,
+        "avg_rating": 4.5,
+        "reviews": []
+    },
+    {
+        "image": "https://i.ibb.co/MB4BH42/o1.jpg",
+        "name": "NVIDIA GeForce RTX Keyboard",
+        "category": "others",
+        "status": "In Stock",
+        "price": "60000",
+        "description": "The NVIDIA GeForce RTX Keyboard is a high-end keyboard with real-time ray tracing support.",
+        "key_features": [
+            "Brand: NVIDIA",
+            "Base Clock: 1440MHz",
+            "Boost Clock: 1710MHz"
+        ],
+        "inv_rating": null,
+        "avg_rating": 4.5,
+        "reviews": []
+    },
+
+    {
+        "image": "https://i.ibb.co/QXk8DjC/o2.webp",
+        "name": "NZXT H510",
+        "category": "others",
+        "status": "In Stock",
+        "price": "8000",
+        "description": "The NZXT H510 is a popular mid-tower computer case with a minimalist design.",
+        "key_features": [
+            "Brand: NZXT",
+            "Form Factor: Mid-Tower",
+            "Motherboard Support: ATX, Micro-ATX, Mini-ITX",
+            "Front I/O Ports: 1 x USB 3.1 Type-C, 1 x USB 3.0, Audio"
+        ],
+        "inv_rating": null,
+        "avg_rating": 4.5,
+        "reviews": []
+    },
+
+    {
+        "image": "https://i.ibb.co/5YFPSPx/o3.jpg",
+        "name": "Cooler Master MasterBox MB511",
+        "category": "others",
+        "status": "In Stock",
+        "price": "7000",
+        "description": "The Cooler Master MasterBox MB511 is a stylish mid-tower case with a mesh front panel.",
+        "key_features": [
+            "Brand: Cooler Master",
+            "Form Factor: Mid-Tower",
+            "Motherboard Support: ATX, Micro-ATX, Mini-ITX",
+            "Front I/O Ports: 2 x USB 3.0, Audio"
+        ],
+        "inv_rating": null,
+        "avg_rating": 4.5,
+        "reviews": []
+    },
+
+    {
+        "image": "https://i.ibb.co/fYVG7Lb/mn2.png",
+        "name": "LG 27GL850-B",
+        "category": "monitor",
+        "status": "In Stock",
+        "price": "25000",
+        "description": "The LG 27GL850-B is a 27-inch QHD gaming monitor with a 144Hz refresh rate.",
+        "key_features": [
+            "Brand: LG",
+            "Display Size: 27 inches",
+            "Resolution: 2560x1440 (QHD)",
+            "Refresh Rate: 144Hz",
+            "Panel Type: Nano IPS"
+        ],
+        "inv_rating": null,
+        "avg_rating": 4.5,
+        "reviews": []
+    },
+    {
+        "image": "https://i.ibb.co/bWK1byf/mn3.jpg",
+        "name": "ASUS TUF Gaming VG27AQL1A",
+        "category": "monitor",
+        "status": "In Stock",
+        "price": "22000",
+        "description": "The ASUS TUF Gaming VG27AQL1A is a 27-inch QHD gaming monitor with a 170Hz refresh rate.",
+        "key_features": [
+            "Brand: ASUS",
+            "Display Size: 27 inches",
+            "Resolution: 2560x1440 (QHD)",
+            "Refresh Rate: 170Hz",
+            "Panel Type: IPS"
+        ],
+        "inv_rating": null,
+        "avg_rating": 4.5,
+        "reviews": []
+    },
+    {
+        "image": "https://i.ibb.co/tpCP51L/24fw-03-500x500-1.jpg",
+        "name": "Dell UltraSharp U2719D",
+        "category": "monitor",
+        "status": "In Stock",
+        "price": "18000",
+        "description": "The Dell UltraSharp U2719D is a 27-inch QHD monitor with an InfinityEdge display.",
+        "key_features": [
+            "Brand: Dell",
+            "Display Size: 27 inches",
+            "Resolution: 2560x1440 (QHD)",
+            "Refresh Rate: 60Hz",
+            "Panel Type: IPS"
+        ],
+        "inv_rating": null,
+        "avg_rating": 4.5,
+        "reviews": []
+    }
+]

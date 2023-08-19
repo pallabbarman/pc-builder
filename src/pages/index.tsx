@@ -37,8 +37,8 @@ const Home = ({ products, categories }: HomeProps) => {
                 <link rel="icon" href="/favicon.ico" />
             </Head>
             <Banner />
-            <FeaturedCategories />
             <FeaturedProducts products={products} />
+            <FeaturedCategories />
         </>
     );
 };

@@ -34,9 +34,9 @@ const ProductCard = ({ product }: ProductCardProps) => {
                         marginTop: '10px',
                     }}
                 >
-                    <p style={{ margin: 0 }}>{product?.category}</p>
+                    <p style={{ margin: 0 }}>Category: {product?.category}</p>
                     <Title level={5} style={{ margin: 0 }}>
-                        $ {product?.price}
+                        Price: $ {product?.price}
                     </Title>
                 </div>
                 <div

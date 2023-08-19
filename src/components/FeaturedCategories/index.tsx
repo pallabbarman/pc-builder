@@ -15,7 +15,7 @@ const FeaturedCategories = () => {
         <div
             style={{
                 padding: md ? '0 50px' : '0 1rem',
-                paddingTop: md ? '3rem' : '2rem',
+                paddingTop: md ? '0' : '2rem',
             }}
         >
             <FeaturedTitle
