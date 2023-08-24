@@ -51,6 +51,7 @@ const ProductDetails = ({ product, categories }: ProductDetailsProps) => {
                         alt={product?.name}
                         width={lg ? 400 : 300}
                         height={lg ? 400 : 300}
+                        style={{ borderRadius: '10px' }}
                     />
                 </Col>
                 <Col md={{ span: 12 }}>
@@ -112,7 +113,7 @@ export const getStaticProps: GetStaticProps<ProductDetailsProps> = async ({
     const categoriesResponse = await fetch(`${baseUrl}/api/categories`);
     const categories = await categoriesResponse.json();
 
-    return { props: { product, categories } };
+    return { props: { product, categories }, revalidate: 30 };
 };
 
 export default ProductDetails;

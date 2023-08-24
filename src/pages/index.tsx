@@ -1,3 +1,4 @@
+import AllProducts from '@/components/AllProducts';
 import Banner from '@/components/Banner';
 import FeaturedCategories from '@/components/FeaturedCategories';
 import FeaturedProducts from '@/components/FeaturedProducts';
@@ -39,6 +40,7 @@ const Home = ({ products, categories }: HomeProps) => {
             <Banner />
             <FeaturedProducts products={products} />
             <FeaturedCategories />
+            <AllProducts products={products} />
         </>
     );
 };
