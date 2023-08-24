@@ -12,11 +12,7 @@ const FeaturedCategories = () => {
     const { categories } = useAppSelector((state) => state.categories);
 
     return (
-        <div
-            style={{
-                padding: md ? '3rem 50px' : '0 1rem',
-            }}
-        >
+        <div>
             <FeaturedTitle
                 title="Featured Categories"
                 description="Get Your Desired Product from Featured Category!"

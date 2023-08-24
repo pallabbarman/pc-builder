@@ -113,7 +113,7 @@ export const getStaticProps: GetStaticProps<ProductDetailsProps> = async ({
     const categoriesResponse = await fetch(`${baseUrl}/api/categories`);
     const categories = await categoriesResponse.json();
 
-    return { props: { product, categories }, revalidate: 30 };
+    return { props: { product, categories }, revalidate: 10 };
 };
 
 export default ProductDetails;
