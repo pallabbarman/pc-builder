@@ -26,7 +26,11 @@ const FeaturedProducts = ({ products }: FeaturedProductsProps) => {
                 title="Featured Products"
                 description="Check & Get Your Desired Product!"
             />
-            <Row gutter={[24, 24]} style={{ marginTop: '2rem' }}>
+            <Row
+                gutter={[24, 24]}
+                style={{ marginTop: '2rem' }}
+                justify="center"
+            >
                 {randomProducts?.map((product) => (
                     <Col
                         xxl={{ span: 4 }}

@@ -18,7 +18,11 @@ const AllProducts = ({ products }: AllProductsProps) => {
                 title="All Products"
                 description="Check Out All PC Building Components!"
             />
-            <Row gutter={[24, 24]} style={{ marginTop: '2rem' }}>
+            <Row
+                gutter={[24, 24]}
+                style={{ marginTop: '2rem' }}
+                justify="center"
+            >
                 {products?.map((product) => (
                     <Col
                         xxl={{ span: 4 }}
