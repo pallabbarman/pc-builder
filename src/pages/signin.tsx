@@ -44,8 +44,7 @@ const SignIn = () => {
                                 size="large"
                                 onClick={() =>
                                     signIn('google', {
-                                        callbackUrl:
-                                            'https://web-pc-builder.vercel.app',
+                                        callbackUrl: process.env.BASE_URL,
                                     })
                                 }
                             >
