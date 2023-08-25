@@ -1,6 +1,7 @@
 import RootLayout from '@/layouts/RootLayout';
 import { GoogleOutlined } from '@ant-design/icons';
 import { Button, Col, Row, Typography } from 'antd';
+import { signIn } from 'next-auth/react';
 import Image from 'next/image';
 import type { ReactElement } from 'react';
 
@@ -38,7 +39,16 @@ const SignIn = () => {
                             <Title level={1}>Login</Title>
                         </Col>
                         <Col>
-                            <Button shape="round" size="large">
+                            <Button
+                                shape="round"
+                                size="large"
+                                onClick={() =>
+                                    signIn('google', {
+                                        callbackUrl:
+                                            'https://web-pc-builder.vercel.app',
+                                    })
+                                }
+                            >
                                 <GoogleOutlined /> SignIn with Google
                             </Button>
                         </Col>

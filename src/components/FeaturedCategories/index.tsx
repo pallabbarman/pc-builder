@@ -5,14 +5,13 @@ import Link from 'next/link';
 import FeaturedTitle from '../FeaturedTitle';
 
 const { useBreakpoint } = Grid;
-const { Meta } = Card;
 
 const FeaturedCategories = () => {
     const { md } = useBreakpoint();
     const { categories } = useAppSelector((state) => state.categories);
 
     return (
-        <div>
+        <div style={{ padding: md ? '0 50px' : '0 1rem' }}>
             <FeaturedTitle
                 title="Featured Categories"
                 description="Get Your Desired Product from Featured Category!"

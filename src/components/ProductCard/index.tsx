@@ -25,7 +25,22 @@ const ProductCard = ({ product }: ProductCardProps) => {
                     />
                 }
             >
-                <Meta title={product?.name} description={product.description} />
+                <Meta
+                    title={product?.name}
+                    description={
+                        <div
+                            style={{
+                                WebkitLineClamp: '2',
+                                WebkitBoxOrient: 'vertical',
+                                overflow: 'hidden',
+                                textOverflow: 'ellipsis',
+                                display: '-webkit-box',
+                            }}
+                        >
+                            {product.description}
+                        </div>
+                    }
+                />
                 <div
                     style={{
                         display: 'flex',

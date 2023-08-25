@@ -1,6 +1,7 @@
 import store from '@/redux/app';
 import '@/styles/globals.css';
 import { NextPage } from 'next';
+import { SessionProvider } from 'next-auth/react';
 import type { AppProps } from 'next/app';
 import { ReactElement, ReactNode } from 'react';
 import { Provider } from 'react-redux';
@@ -17,8 +18,10 @@ export default function App({ Component, pageProps }: AppPropsWithLayout) {
     const getLayout = Component.getLayout ?? ((page) => page);
 
     return (
-        <Provider store={store}>
-            {getLayout(<Component {...pageProps} />)}
-        </Provider>
+        <SessionProvider session={pageProps.session}>
+            <Provider store={store}>
+                {getLayout(<Component {...pageProps} />)}
+            </Provider>
+        </SessionProvider>
     );
 }

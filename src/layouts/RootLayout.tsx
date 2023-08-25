@@ -1,7 +1,7 @@
 import { useAppSelector } from '@/redux/hooks';
 import { MenuFoldOutlined, MenuUnfoldOutlined } from '@ant-design/icons';
-import type { MenuProps } from 'antd';
-import { Button, Grid, Layout, Typography, theme } from 'antd';
+import { Button, Grid, Layout, MenuProps, Typography, theme } from 'antd';
+import { signOut, useSession } from 'next-auth/react';
 import Link from 'next/link';
 import { ReactNode, useState } from 'react';
 import Sidebar from './MobileMenu';
@@ -21,6 +21,7 @@ const RootLayout = ({ children }: RootLayoutProps) => {
         token: { colorBgContainer },
     } = theme.useToken();
     const { lg } = useBreakpoint();
+    const { data: session } = useSession();
     const { categories } = useAppSelector((state) => state.categories);
 
     const showDrawer = () => {
@@ -48,14 +49,29 @@ const RootLayout = ({ children }: RootLayoutProps) => {
                 key: category.key,
             })),
         },
-        {
-            label: <Link href="/">PC Builder</Link>,
-            key: 'pc-builder',
-        },
-        {
-            label: <Link href="/signin">SignIn</Link>,
-            key: 'signin',
-        },
+        session?.user
+            ? {
+                  label: (
+                      <Button danger type="primary">
+                          PC Builder
+                      </Button>
+                  ),
+                  key: 'pc-builder',
+              }
+            : null,
+        session?.user
+            ? {
+                  label: (
+                      <Button ghost={true} onClick={() => signOut()}>
+                          Logout
+                      </Button>
+                  ),
+                  key: 'logout',
+              }
+            : {
+                  label: <Link href="/signin">SignIn</Link>,
+                  key: 'signin',
+              },
     ];
 
     return (

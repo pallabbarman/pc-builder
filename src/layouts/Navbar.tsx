@@ -1,8 +1,8 @@
 import type { MenuProps } from 'antd';
 import { Menu } from 'antd';
+import { useSession } from 'next-auth/react';
 import { useRouter } from 'next/router';
 import { useEffect, useState } from 'react';
-
 interface NavbarProps {
     items: MenuProps['items'];
 }
@@ -10,6 +10,7 @@ interface NavbarProps {
 const Navbar = ({ items }: NavbarProps) => {
     const [current, setCurrent] = useState('');
     const router = useRouter();
+    const { data: session } = useSession();
 
     useEffect(() => {
         const pathname = router.pathname;
@@ -28,6 +29,7 @@ const Navbar = ({ items }: NavbarProps) => {
             theme="dark"
             mode="horizontal"
             items={items}
+            style={{ width: session?.user ? '402px' : '240px' }}
         />
     );
 };

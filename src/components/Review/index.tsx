@@ -1,5 +1,16 @@
 import { Review as IReview } from '@/types/product';
-import { Button, Col, Form, Input, List, Row, Typography, message } from 'antd';
+import {
+    Avatar,
+    Button,
+    Col,
+    Form,
+    Input,
+    List,
+    Row,
+    Typography,
+    message,
+} from 'antd';
+import { useSession } from 'next-auth/react';
 import { useRouter } from 'next/router';
 
 const { Item } = Form;
@@ -16,16 +27,18 @@ const Review = ({ reviews }: ReviewProps) => {
     const router = useRouter();
     const { id } = router.query;
     const [form] = Form.useForm();
+    const { data: session } = useSession();
 
     const onFinish = (data: IReview) => {
         const baseUrl = process.env.BASE_URL;
+        const formData = { ...session?.user, ...data };
 
         fetch(`${baseUrl}/api/products/${id}`, {
             method: 'POST',
             headers: {
                 'Content-Type': 'application/json',
             },
-            body: JSON.stringify(data),
+            body: JSON.stringify(formData),
         })
             .then((res) => res.json())
             .then(() => {
@@ -59,29 +72,31 @@ const Review = ({ reviews }: ReviewProps) => {
                     renderItem={(item) => (
                         <List.Item>
                             <List.Item.Meta
-                                // avatar={<Avatar src={item} />}
-                                // title={item}
+                                avatar={<Avatar src={item?.image} />}
+                                title={item?.name}
                                 description={item?.review}
                             />
                         </List.Item>
                     )}
                 />
-                <Form onFinish={onFinish} form={form}>
-                    <Item name="review" rules={[{ required: true }]}>
-                        <TextArea
-                            rows={3}
-                            placeholder="Write about your experience..."
-                        />
-                    </Item>
-                    <Button
-                        type="primary"
-                        block
-                        htmlType="submit"
-                        style={{ marginTop: '1rem' }}
-                    >
-                        Submit
-                    </Button>
-                </Form>
+                {session?.user && (
+                    <Form onFinish={onFinish} form={form}>
+                        <Item name="review" rules={[{ required: true }]}>
+                            <TextArea
+                                rows={3}
+                                placeholder="Write about your experience..."
+                            />
+                        </Item>
+                        <Button
+                            type="primary"
+                            block
+                            htmlType="submit"
+                            style={{ marginTop: '1rem' }}
+                        >
+                            Submit
+                        </Button>
+                    </Form>
+                )}
             </Col>
         </Row>
     );

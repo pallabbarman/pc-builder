@@ -5,6 +5,9 @@ export enum ProductStatus {
 
 export interface Review {
     review: string;
+    name: string;
+    email: string;
+    image: string;
 }
 
 export interface Product {
