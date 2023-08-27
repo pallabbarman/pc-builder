@@ -6,12 +6,14 @@ import {
     Form,
     Input,
     List,
+    Rate,
     Row,
     Typography,
     message,
 } from 'antd';
 import { useSession } from 'next-auth/react';
 import { useRouter } from 'next/router';
+import { useState } from 'react';
 
 const { Item } = Form;
 const { TextArea } = Input;
@@ -23,6 +25,7 @@ interface ReviewProps {
 }
 
 const Review = ({ reviews }: ReviewProps) => {
+    const [rating, setRating] = useState<number>();
     const [messageApi, contextHolder] = message.useMessage();
     const router = useRouter();
     const { id } = router.query;
@@ -70,7 +73,16 @@ const Review = ({ reviews }: ReviewProps) => {
                     itemLayout="horizontal"
                     dataSource={reviews}
                     renderItem={(item) => (
-                        <List.Item>
+                        <List.Item
+                            actions={[
+                                <Rate
+                                    key={item.rating + 1}
+                                    allowHalf
+                                    disabled
+                                    defaultValue={item.rating}
+                                />,
+                            ]}
+                        >
                             <List.Item.Meta
                                 avatar={<Avatar src={item?.image} />}
                                 title={item?.name}
@@ -81,6 +93,13 @@ const Review = ({ reviews }: ReviewProps) => {
                 />
                 {session?.user && (
                     <Form onFinish={onFinish} form={form}>
+                        <Item name="rating" rules={[{ required: true }]}>
+                            <Rate
+                                allowHalf
+                                onChange={(value) => setRating(value)}
+                                value={rating}
+                            />
+                        </Item>
                         <Item name="review" rules={[{ required: true }]}>
                             <TextArea
                                 rows={3}

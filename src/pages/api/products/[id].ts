@@ -21,15 +21,30 @@ const product = async (req: NextApiRequest, res: NextApiResponse) => {
             const products = await client.db().collection('products');
 
             const id = new ObjectId(req.query?.id as string);
-            const update = { $push: { reviews: req.body } };
+            const newReview = req.body;
 
-            const review = await products.findOneAndUpdate(
+            const existingProduct = await products.findOne({ _id: id });
+
+            const existingTotalRatings = existingProduct?.reviews.length;
+            const existingAvgRating = existingProduct?.avg_rating;
+            const newRating = newReview.rating;
+
+            const newAvgRating =
+                (existingAvgRating * existingTotalRatings + newRating) /
+                (existingTotalRatings + 1);
+
+            const update = {
+                $push: { reviews: newReview },
+                $set: { avg_rating: newAvgRating },
+            };
+
+            const updatedProduct = await products.findOneAndUpdate(
                 { _id: id },
                 update,
                 { returnDocument: 'after' }
             );
 
-            res.status(200).send(review.value);
+            res.status(200).send(updatedProduct.value);
         } catch (error) {
             res.status(500).send(error);
         }

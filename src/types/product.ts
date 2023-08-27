@@ -8,6 +8,7 @@ export interface Review {
     name: string;
     email: string;
     image: string;
+    rating: number;
 }
 
 export interface Product {

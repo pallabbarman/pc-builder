@@ -66,7 +66,7 @@ const ProductCard = ({ product }: ProductCardProps) => {
                     <Rate
                         disabled
                         allowHalf
-                        defaultValue={product.avg_rating}
+                        defaultValue={product?.avg_rating}
                     />
                 </div>
             </Card>
