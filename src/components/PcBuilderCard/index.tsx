@@ -1,21 +1,27 @@
 import { Product } from '@/types/product';
-import { Card, Rate, Typography } from 'antd';
+import { Button, Card, ConfigProvider, Rate, Typography } from 'antd';
 import Image from 'next/image';
-import Link from 'next/link';
 
 const { Title } = Typography;
 const { Meta } = Card;
 
-interface ProductCardProps {
+interface PcBuilderCardProps {
     product: Product;
 }
 
-const ProductCard = ({ product }: ProductCardProps) => {
+const PcBuilderCard = ({ product }: PcBuilderCardProps) => {
     return (
-        <Link href={`/products/${product._id}`}>
+        <ConfigProvider
+            theme={{
+                components: {
+                    Card: {
+                        actionsLiMargin: '12px',
+                    },
+                },
+            }}
+        >
             <Card
                 hoverable
-                style={{ maxWidth: '320px' }}
                 cover={
                     <Image
                         alt={product.name}
@@ -25,6 +31,11 @@ const ProductCard = ({ product }: ProductCardProps) => {
                         style={{ objectFit: 'cover' }}
                     />
                 }
+                actions={[
+                    <Button type="primary" key="add" block>
+                        Add
+                    </Button>,
+                ]}
             >
                 <Meta
                     title={product?.name}
@@ -71,8 +82,8 @@ const ProductCard = ({ product }: ProductCardProps) => {
                     />
                 </div>
             </Card>
-        </Link>
+        </ConfigProvider>
     );
 };
 
-export default ProductCard;
+export default PcBuilderCard;

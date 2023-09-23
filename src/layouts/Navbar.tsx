@@ -29,7 +29,7 @@ const Navbar = ({ items }: NavbarProps) => {
             theme="dark"
             mode="horizontal"
             items={items}
-            style={{ width: session?.user ? '402px' : '240px' }}
+            style={{ width: session?.user ? '402px' : '361px' }}
         />
     );
 };

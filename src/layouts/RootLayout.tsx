@@ -49,16 +49,16 @@ const RootLayout = ({ children }: RootLayoutProps) => {
                 key: category.key,
             })),
         },
-        session?.user
-            ? {
-                  label: (
-                      <Button danger type="primary">
-                          PC Builder
-                      </Button>
-                  ),
-                  key: 'pc-builder',
-              }
-            : null,
+        {
+            label: (
+                <Link href="/pc-builder">
+                    <Button danger type="primary">
+                        PC Builder
+                    </Button>
+                </Link>
+            ),
+            key: 'pc-builder',
+        },
         session?.user
             ? {
                   label: (
@@ -69,7 +69,7 @@ const RootLayout = ({ children }: RootLayoutProps) => {
                   key: 'logout',
               }
             : {
-                  label: <Link href="/signin">SignIn</Link>,
+                  label: <Link href="/signin">Login</Link>,
                   key: 'signin',
               },
     ];
