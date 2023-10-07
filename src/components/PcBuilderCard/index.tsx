@@ -25,18 +25,18 @@ const PcBuilderCard = ({ product }: PcBuilderCardProps) => {
 
     const handleSelectedProducts = () => {
         if (!isSelectedProduct) {
-            dispatch(selectedProducts(product));
-            router.push('/pc-builder');
             messageApi.open({
                 type: 'success',
                 content: 'Product added to card!',
             });
-        } else {
+            dispatch(selectedProducts(product));
             router.push('/pc-builder');
+        } else {
             messageApi.open({
                 type: 'error',
                 content: 'You can select only one product from each category!',
             });
+            router.push('/pc-builder');
         }
     };
 

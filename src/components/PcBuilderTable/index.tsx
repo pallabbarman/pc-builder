@@ -108,12 +108,12 @@ const PcBuilderTable = ({ categories }: PcBuilderTableProps) => {
                             <Button
                                 disabled={isBtnDisable}
                                 onClick={() => {
-                                    dispatch(clearProduct());
-                                    router.push('/');
                                     messageApi.open({
                                         type: 'success',
                                         content: 'Your PC build is completed!',
                                     });
+                                    dispatch(clearProduct());
+                                    router.push('/');
                                 }}
                             >
                                 Complete Build
