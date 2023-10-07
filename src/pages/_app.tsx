@@ -22,7 +22,7 @@ export default function App({ Component, pageProps }: AppPropsWithLayout) {
     return (
         <SessionProvider session={pageProps.session}>
             <Provider store={store}>
-                <ToastContainer />
+                <ToastContainer position="top-center" />
                 {getLayout(<Component {...pageProps} />)}
             </Provider>
         </SessionProvider>

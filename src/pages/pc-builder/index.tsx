@@ -25,6 +25,7 @@ const PcBuilder = ({ categories }: PcBuilderProps) => {
         <div
             style={{
                 padding: md ? '3rem 50px' : '2rem 1rem',
+                overflowX: 'auto',
             }}
         >
             <PcBuilderTable categories={categories} />
