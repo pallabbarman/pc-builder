@@ -16,8 +16,6 @@ interface PcBuilderProductsProps {
 const PcBuilderProducts = ({ products }: PcBuilderProductsProps) => {
     const { md } = useBreakpoint();
 
-    console.log('products', products);
-
     return (
         <div
             style={{

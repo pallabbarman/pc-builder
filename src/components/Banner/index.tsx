@@ -40,7 +40,7 @@ const Banner = () => {
                         provident cum nostrum nemo voluptas vitae necessitatibus
                         voluptatem reprehenderit?
                     </Paragraph>
-                    <Link href="/">
+                    <Link href="/pc-builder">
                         <Button
                             style={{
                                 backgroundColor: 'transparent',

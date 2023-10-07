@@ -3,3 +3,29 @@
     padding: 0;
     box-sizing: border-box;
 }
+
+.builder-table {
+    width: 100%;
+}
+
+.builder-table td,
+.builder-table th {
+    border: 1px solid #ddd;
+    padding: 8px;
+}
+
+.builder-table tr:nth-child(even) {
+    background-color: #f2f2f2;
+}
+
+.builder-table tr:hover {
+    background-color: #ddd;
+}
+
+.builder-table th {
+    padding-top: 12px;
+    padding-bottom: 12px;
+    text-align: left;
+    background-color: #001529;
+    color: white;
+}
