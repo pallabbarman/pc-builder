@@ -62,7 +62,11 @@ const RootLayout = ({ children }: RootLayoutProps) => {
         session?.user
             ? {
                   label: (
-                      <Button ghost={true} onClick={() => signOut()}>
+                      <Button
+                          ghost={true}
+                          onClick={() => signOut()}
+                          type="primary"
+                      >
                           Logout
                       </Button>
                   ),

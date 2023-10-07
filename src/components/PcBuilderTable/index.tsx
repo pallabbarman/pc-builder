@@ -82,7 +82,7 @@ const PcBuilderTable = ({ categories }: PcBuilderTableProps) => {
                                                     selectedProduct._id
                                                 )
                                             );
-                                            toast.success(
+                                            toast.error(
                                                 'Product deleted from cart!'
                                             );
                                         }}
