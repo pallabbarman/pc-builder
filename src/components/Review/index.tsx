@@ -9,11 +9,11 @@ import {
     Rate,
     Row,
     Typography,
-    message,
 } from 'antd';
 import { useSession } from 'next-auth/react';
 import { useRouter } from 'next/router';
 import { useState } from 'react';
+import { toast } from 'react-toastify';
 
 const { Item } = Form;
 const { TextArea } = Input;
@@ -26,7 +26,7 @@ interface ReviewProps {
 
 const Review = ({ reviews }: ReviewProps) => {
     const [rating, setRating] = useState<number>();
-    const [messageApi, contextHolder] = message.useMessage();
+
     const router = useRouter();
     const { id } = router.query;
     const [form] = Form.useForm();
@@ -45,18 +45,10 @@ const Review = ({ reviews }: ReviewProps) => {
         })
             .then((res) => res.json())
             .then(() => {
-                messageApi.open({
-                    type: 'success',
-                    content: 'Review added successfully!',
-                });
+                toast.success('Review added successfully!');
                 form.resetFields();
             })
-            .catch(() =>
-                messageApi.open({
-                    type: 'error',
-                    content: 'Something went wrong!',
-                })
-            );
+            .catch(() => toast.error('Something went wrong!'));
     };
 
     return (
@@ -67,7 +59,6 @@ const Review = ({ reviews }: ReviewProps) => {
                     width: '100%',
                 }}
             >
-                {contextHolder}
                 <Title level={3}>Reviews</Title>
                 <List
                     itemLayout="horizontal"

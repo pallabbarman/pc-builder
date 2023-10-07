@@ -3,10 +3,11 @@ import { useAppDispatch, useAppSelector } from '@/redux/hooks';
 import { Category } from '@/types/category';
 import { Product } from '@/types/product';
 import { DeleteOutlined } from '@ant-design/icons';
-import { Button, message } from 'antd';
+import { Button } from 'antd';
 import Image from 'next/image';
 import Link from 'next/link';
 import { useRouter } from 'next/navigation';
+import { toast } from 'react-toastify';
 
 interface PcBuilderTableProps {
     categories: Category[];
@@ -15,7 +16,6 @@ interface PcBuilderTableProps {
 const PcBuilderTable = ({ categories }: PcBuilderTableProps) => {
     const router = useRouter();
     const dispatch = useAppDispatch();
-    const [messageApi, contextHolder] = message.useMessage();
     const selectedProducts = useAppSelector(
         (state) => state.pcBuilder.productsSelected
     );
@@ -31,98 +31,88 @@ const PcBuilderTable = ({ categories }: PcBuilderTableProps) => {
     const totalPrice = calculateTotalPrice(selectedProducts);
 
     return (
-        <>
-            {contextHolder}
-            <table className="builder-table">
-                <thead>
-                    <tr>
-                        <th>Image</th>
-                        <th>Name</th>
-                        <th>Product</th>
-                        <th>Price</th>
-                        <th>Action</th>
-                    </tr>
-                </thead>
-                <tbody>
-                    {categories?.map((category) => {
-                        const selectedProduct: Product | undefined =
-                            selectedProducts?.find(
-                                (product) => product.category === category.key
-                            );
-                        return (
-                            <tr key={category.key}>
-                                <td>
-                                    <Image
-                                        src={category.image}
-                                        alt={category.name}
-                                        width={50}
-                                        height={50}
-                                        style={{
-                                            borderRadius: 10,
-                                        }}
-                                    />
-                                </td>
-                                <td>{category.name}</td>
-                                <td>
-                                    {selectedProduct
-                                        ? selectedProduct.name
-                                        : 'N/A'}
-                                </td>
-                                <td>
-                                    {selectedProduct
-                                        ? selectedProduct.price
-                                        : 'N/A'}
-                                </td>
-                                <td>
-                                    <Link href={`/pc-builder/${category.url}`}>
-                                        <Button type="primary">Choose</Button>
-                                    </Link>{' '}
-                                    {selectedProduct ? (
-                                        <Button
-                                            icon={<DeleteOutlined />}
-                                            onClick={() => {
-                                                dispatch(
-                                                    deleteProduct(
-                                                        selectedProduct._id
-                                                    )
-                                                );
-                                                messageApi.open({
-                                                    type: 'success',
-                                                    content:
-                                                        'Product deleted from cart!',
-                                                });
-                                            }}
-                                            danger
-                                        />
-                                    ) : null}
-                                </td>
-                            </tr>
+        <table className="builder-table">
+            <thead>
+                <tr>
+                    <th>Image</th>
+                    <th>Name</th>
+                    <th>Product</th>
+                    <th>Price</th>
+                    <th>Action</th>
+                </tr>
+            </thead>
+            <tbody>
+                {categories?.map((category) => {
+                    const selectedProduct: Product | undefined =
+                        selectedProducts?.find(
+                            (product) => product.category === category.key
                         );
-                    })}
-                    <tr>
-                        <td>&nbsp;</td>
-                        <td>&nbsp;</td>
-                        <td>&nbsp;</td>
-                        <td>Total: {totalPrice?.toFixed(2)}</td>
-                        <td>
-                            <Button
-                                disabled={isBtnDisable}
-                                onClick={() => {
-                                    messageApi.open({
-                                        type: 'success',
-                                        content: 'Your PC build is completed!',
-                                    });
-                                    dispatch(clearProduct());
-                                    router.push('/');
-                                }}
-                            >
-                                Complete Build
-                            </Button>
-                        </td>
-                    </tr>
-                </tbody>
-            </table>
-        </>
+                    return (
+                        <tr key={category.key}>
+                            <td>
+                                <Image
+                                    src={category.image}
+                                    alt={category.name}
+                                    width={50}
+                                    height={50}
+                                    style={{
+                                        borderRadius: 10,
+                                    }}
+                                />
+                            </td>
+                            <td>{category.name}</td>
+                            <td>
+                                {selectedProduct ? selectedProduct.name : 'N/A'}
+                            </td>
+                            <td>
+                                {selectedProduct
+                                    ? selectedProduct.price
+                                    : 'N/A'}
+                            </td>
+                            <td>
+                                <Link href={`/pc-builder/${category.url}`}>
+                                    <Button type="primary">Choose</Button>
+                                </Link>{' '}
+                                {selectedProduct ? (
+                                    <Button
+                                        icon={<DeleteOutlined />}
+                                        onClick={() => {
+                                            dispatch(
+                                                deleteProduct(
+                                                    selectedProduct._id
+                                                )
+                                            );
+                                            toast.success(
+                                                'Product deleted from cart!'
+                                            );
+                                        }}
+                                        danger
+                                    />
+                                ) : null}
+                            </td>
+                        </tr>
+                    );
+                })}
+                <tr>
+                    <td>&nbsp;</td>
+                    <td>&nbsp;</td>
+                    <td>&nbsp;</td>
+                    <td>Total: {totalPrice?.toFixed(2)}</td>
+                    <td>
+                        <Button
+                            disabled={isBtnDisable}
+                            onClick={() => {
+                                toast.success('Your PC build is completed!');
+                                dispatch(clearProduct());
+                                router.push('/');
+                            }}
+                        >
+                            Complete Build
+                        </Button>
+                    </td>
+                </tr>
+            </tbody>
+        </table>
     );
 };
 
